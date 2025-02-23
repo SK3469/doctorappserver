@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser());
 const corsOptions= {
-    origin:'https://doctorapp-t160.onrender.com/',
+    origin:"*",
     credentials:true
 }
 app.use(cors(corsOptions));
