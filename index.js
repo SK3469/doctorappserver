@@ -23,9 +23,11 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser());
 const corsOptions= {
-    origin:"*",
-    credentials:true
-}
+    origin: ["https://doctorapp-t160.onrender.com"],  // Add frontend URL
+    methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS",  // Allow common HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"],  // Allow necessary headers
+    credentials: true
+};
 app.use(cors(corsOptions));
 
 //for routes
