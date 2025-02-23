@@ -22,13 +22,20 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser());
-const corsOptions= {
-    origin: ["https://doctorapp-t160.onrender.com"],  // Add frontend URL
-    methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS",  // Allow common HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization"],  // Allow necessary headers
+// const corsOptions= {
+//     origin: ["https://doctorapp-t160.onrender.com"],  // Add frontend URL
+//     methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS",  // Allow common HTTP methods
+//     allowedHeaders: ["Content-Type", "Authorization"],  // Allow necessary headers
+//     credentials: true
+// };
+const corsOptions = {
+    origin: ["http://localhost:5173", "https://doctorapp-t160.onrender.com"],  // Allow both local & production frontend
+    methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS",
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 };
 app.use(cors(corsOptions));
+
 
 //for routes
 app.use("/api/v1/user",userRoute)
